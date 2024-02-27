@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/home.css">
+    <script src="../js/task.js" defer></script>
+    <title>TaskLevel</title>
+</head>
+
+<body>
+    <header>
+        <img class="logo" src="../img/Logo.png" id='logoutButton' alt="Logo TaskLevel">
+        <div class="container">
+            <div class="aba-status">
+                <button onclick="filtrarAndamento()" class="filtro" id="emAndamento">Em Andamento</button>
+                <button onclick="filtrarConclusao()" class="filtro">Concluídas</button>
+            </div>
+            <img src="../img/foto-perfil.png" alt="">
+        </div>
+        <hr>
+    </header>
+    <main>
+        <div class="add_atividade" id="addTaskButton">
+            <img src="../img/addTask.png" alt="Adicionar atividade">
+        </div>
+        <div class="atividades" id="atividades">
+
+        </div>
+        <div class="atividade_focus" style="display: none;" id="atividade_focus">
+            <div class="background-container_focus">
+                <button class="btn_sair" id="fecharCampoEdicao" onclick="fecharCampoEdicao()"><img src="../img/cancelar 1.png" alt=""></button>
+                <img class="imagem" src="../img/upload imagem.png" alt="">
+                <h1 class="titulo_focus" id="tituloEditarTarefa"></h1>
+                <hr>
+                <h3 class="conteudo_focus" id="descricaoEditarTarefa"></h3>
+                <div class="inputs">
+                    <input type="date">
+                    <div class="check">
+                        <input class="status" type="checkbox">
+                        <p>Concluída</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="atividade_focus" id="campoCriacao" style="display: none;">
+            <div class="background-container_focus">
+                <button class="btn_sair" id="fecharCampoCriacao" onclick="fecharCampoCriacao()"><img src="../img/cancelar 1.png" alt=""></button>
+                <img class="imagem" src="../img/upload imagem.png" alt="">
+                <input type="text" placeholder="Titulo" class="titulo_focus" id="tituloCriarTarefa">
+                <hr>
+                <input type="text" placeholder="Descricao" class="conteudo_focus" id="descricaoCriarTarefa">
+                <div class="inputs">
+                    <input type="date" id="dataCriarTarefa">
+                    <div class="check">
+                        <input class="status" type="checkbox">
+                        <p>Concluída</p>
+                    </div>
+                </div>
+                <button class="botaoConfirmarECriar" id="botaoConfirmarECriar" onclick="criarTarefa()">Criar</button>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

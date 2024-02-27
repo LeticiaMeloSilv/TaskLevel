@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/cadastro.css">
+    <script src="../js/cadastro.js" defer></script>
+    <title>Cadastro</title>
+</head>
+
+<body>
+
+    <header>
+        <a href="../../index.html" class="voltar">
+            <img src="../img/voltar.png" alt="">
+        </a>
+        <img src="../img/logo.png" alt="">
+    </header>
+
+    <main>
+        <div class="foto">
+            <label class="picture" for="picture__input" tabindex="0">
+                <span class="picture__image"></span>
+            </label>
+            <input type="file" name="picture__input" id="picture__input">
+        </div>
+        <div class="caixa">
+            <label id="labelNome">Nome de usuário</label>
+            <input type="text" id="nome">
+            <hr>
+
+            <label>Endereço de e-mail</label>
+            <input type="email" name="email" id="email" required>
+            <hr>
+
+            <label id="labelSenha">Senha</label>
+            <input type="password" name="senha" id="senha" required>
+            <hr>
+
+            <label id="labelConfirmacao">Confirmação de senha</label>
+            <input type="password" name="confirmar" id="confirmar">
+            <hr>
+
+            <label id="labelTelefone">Telefone</label>
+            <input type="text" name="telefone" id="telefone">
+            <hr>
+
+            <div class="btn">
+                <button class="botao" onclick="cadastrarUsuario()">
+                    ENTRAR
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+
+</body>
+
+</html>

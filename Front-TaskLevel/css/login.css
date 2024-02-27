@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul,
+ol,
+a,
+li {
+    text-decoration: none;
+    list-style: none;
+    color: #fff;
+}
+
+button {
+    border: none;
+}
+
+input {
+    border: none;
+    background-image: none;
+    background-color: transparent;
+    outline: none;
+}
+
+hr {
+    border: 1px solid aliceblue;
+    margin-bottom: 86px;
+}
+
+body {
+    background-color: #FBF9F1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header {
+    color: #AAD7D9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    gap: 36px;
+}
+
+header h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 64px;
+}
+
+header h4 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 36px;
+}
+
+main {
+    background-color: #AAD7D9;
+    color: #fff;
+    padding: 198px 80px 60px;
+    margin: 52px;
+
+    border-radius: 50px;
+    width: 772px;
+    height: 791px;
+}
+
+.btn_esqueci_a_senha {
+    text-decoration: underline;
+    place-self: end;
+padding: 20px 0px 30px 0px;
+}
+
+.btn_entrar {
+    cursor: pointer;
+    padding: 28px 90px;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #AAD7D9;
+    font-size: 28px;
+}
+
+input {
+    color: #fff;
+    padding: 12px;
+    font-size: 18px;
+}
+
+::placeholder {
+    color: #fff;
+}
+
+.main_footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.main_footer p,a{
+    font-size: 24px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+.btn_criar_conta{
+    font-size: 26px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

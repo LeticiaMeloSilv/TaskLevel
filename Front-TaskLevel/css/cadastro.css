@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+ul,
+ol,
+a,
+li{
+    text-decoration: none;
+    list-style: none;
+    color: #fff;
+}
+button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+   background-color: white;
+   width: 223px;
+   height: 66px;
+   border-radius: 8px;
+   
+
+}
+input{
+    border: none;
+    background-image: none;
+    background-color: transparent;
+    outline: none;
+}
+hr{
+    border: 1px solid #92C7CF;
+    margin-bottom: 15px;
+
+}
+body{
+    background-color: #FBF9F1;
+ 
+
+
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 50px;
+}
+
+main{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.caixa{
+    background-color: #AAD7D9;
+    color: #fff;
+    padding: 198px 80px 60px;
+    margin: 16px;
+    border-radius: 50px;
+    width: 750px;
+    height: 740px;
+}
+label{
+   display: flex;
+   align-items: flex-end;
+   color: #757474;
+  font-size: 24px;
+    margin-bottom: 10px;
+
+}
+.btn{
+    display: flex;
+    align-items: center;
+  justify-content: center;
+    margin-top: 50px;
+    
+}
+.botao{
+    cursor: pointer;
+    color: #AAD7D9; 
+    font-size: 28px;
+}
+
+
+#picture__input {
+    display: none;
+}
+
+.picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-image: url(../img/Person.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: transparent;
+    border: 2px solid;
+    cursor: pointer;
+    font-family: sans-serif;
+    outline: none;
+    overflow: hidden;
+    background-color: #C4C4C4;
+    position: absolute;
+    bottom: 65%;
+    left: 46%;
+    
+}

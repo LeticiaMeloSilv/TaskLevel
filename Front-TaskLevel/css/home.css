@@ -1,0 +1,243 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul,
+ol,
+a,
+li {
+    text-decoration: none;
+    list-style: none;
+    color: #fff;
+}
+
+button {
+    border: none;
+}
+
+input {
+    border: none;
+    background-image: none;
+    background-color: transparent;
+    outline: none;
+}
+
+hr {
+    border: 3px solid #AAD7D9;
+}
+
+body {
+    background-color: #FBF9F1;
+}
+
+.logo {
+    padding: 28px 0px 0px 52px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 36px;
+}
+
+.aba-status {
+    display: flex;
+    flex-direction: row;
+    gap: 78px;
+    align-items: end;
+    padding-bottom: 12px;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    gap: 22px;
+    flex-wrap: wrap;
+    padding: 48px 142px;
+}
+
+.add_atividade {
+    background-color: #AAD7D9;
+    width: 271px;
+    height: 352px;
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.add_atividade img {
+    rotate: -45deg;
+}
+
+.atividade {
+    background-color: #AAD7D9;
+    width: 271px;
+    height: 352px;
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2% 0;
+}
+
+.titulo-data {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 12px 32px 0px;
+    align-items: end;
+}
+
+.titulo {
+    color: rgba(0, 0, 0, 0.69);
+    font-size: 20px;
+}
+
+.data {
+    color: rgba(0, 0, 0, 0.63);
+    font-size: 10px;
+}
+
+.conteudo {
+    color: rgba(117, 116, 116, 1);
+    font-size: 11px;
+    padding: 0px 32px;
+    height: max-content;
+}
+
+.btn_editar {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    padding-right: 8%;
+    cursor: pointer;
+}
+
+/* ***************************************************************** */
+
+
+.background-container_focus {
+    background-color: rgba(251, 249, 241, 1);
+    width: 968px;
+    height: 658px;
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    overflow: hidden;
+
+}
+.atividade_focus {
+    background-color: rgba(12, 45, 50, 0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagem {
+    width: 333px;
+    padding-top: 27px;
+}
+
+.background-container_focus hr {
+    border: 2px solid #92C7CF;
+}
+
+.status {
+    all: unset;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-color: #aad7d993;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border: none;
+    border-radius: 5px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+.status:checked {
+    background-color: #AAD7D9;
+    background-image: url(../img/verifica.png);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border: none;
+    border-radius: 5px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+.titulo_focus {
+    color: rgba(31, 89, 98, 1);
+    font-size: 32px;
+    padding: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.conteudo_focus {
+    padding: 20px;
+    color: rgba(47, 77, 82, 1);
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn_sair {
+    display: flex;
+    background-color: transparent;
+    cursor: pointer;
+
+}
+
+.inputs {
+    display: flex;
+    align-items: end;
+    padding-top: 15%;
+    justify-content: space-between;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.check {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.atividades{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.botaoConfirmarECriar{
+    background-color: #92C7CF;
+    width: 120px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #FBF9F1;
+    border-radius: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filtro{
+    cursor: pointer;
+    background-color: transparent;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}

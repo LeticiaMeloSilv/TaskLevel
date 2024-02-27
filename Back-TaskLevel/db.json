@@ -1,0 +1,108 @@
+{
+  "usuario": [
+    {
+      "id": 1,
+      "nome": "João da Silva",
+      "email": "joao@silva.com",
+      "senha": "joao"
+    },
+    {
+      "id": 2,
+      "nome": "Maria Salvagni",
+      "email": " maria@salvagni.com",
+      "senha": "maria"
+    },
+    {
+      "id": 3,
+      "nome": "Gabriel Pereira",
+      "email": " gabriel@pereira.com",
+      "senha": "gabriel"
+    },
+    {
+      "nome": "vitoria",
+      "email": "vitoria@vitoria",
+      "senha": "123",
+      "telefone": "12345678910",
+      "id": 4
+    },
+    {
+      "nome": "Vinicius",
+      "email": "vinicius@gmail.com",
+      "senha": "vini",
+      "telefone": "118763425",
+      "id": 5
+    },
+    {
+      "nome": "lunavi",
+      "email": "lunavi@gmail.com",
+      "senha": "12345678",
+      "telefone": "12",
+      "id": 7
+    }
+  ],
+  "tarefas": [
+    {
+      "id": 1,
+      "titulo": "Limpar a Casa",
+      "descricao": "Lorem",
+      "dataConclusão": "31/01/2024",
+      "concluida": true,
+      "idUsuario": 1
+    },
+    {
+      "id": 2,
+      "titulo": "Aprender inglês",
+      "descricao": "Lorem",
+      "dataConclusão": "30/10/2024",
+      "concluida": false,
+      "idUsuario": 1
+    },
+    {
+      "id": 3,
+      "titulo": "Novo emprego",
+      "descricao": "Lorem",
+      "dataConclusão": "10/02/2024",
+      "concluida": false,
+      "idUsuario": 3
+    },
+    {
+      "id": 4,
+      "titulo": "Viajar",
+      "descricao": "Lorem",
+      "dataConclusão": "05/03/2024",
+      "concluida": false,
+      "idUsuario": 2
+    },
+    {
+      "id": 5,
+      "titulo": "Conhecer mais pessoas",
+      "descricao": "Lorem",
+      "dataConclusão": "20/05/2024",
+      "concluida": false,
+      "idUsuario": 3
+    },
+    {
+      "id": 6,
+      "titulo": "Conhecer mais pessoas",
+      "descricao": "Lorem",
+      "dataConclusão": "20/05/2024",
+      "concluida": true,
+      "idUsuario": 4
+    },
+    {
+      "id": 7,
+      "titulo": "Viajar",
+      "descricao": "Lorem",
+      "dataConclusão": "20/05/2024",
+      "concluida": false,
+      "idUsuario": 4
+    },
+    {
+      "titulo": "Cozinhar",
+      "descricao": "Ja preparou aquele jantar delicioso que a familia ",
+      "dataConclusão": "",
+      "idUsuario": "4",
+      "id": 8
+    }
+  ]
+}

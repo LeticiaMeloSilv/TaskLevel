@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Front-TaskLevel/css/login.css">
+    <script src="./Front-TaskLevel/js/app.js" defer></script>
+    <title>Task Level</title>
+</head>
+
+<body>
+    <header>
+        <img src="./Front-TaskLevel/img/logo.png" alt="">
+        <h1>Acesse a sua conta</h1>
+        <h4>Gerencie e organize suas tarefas de forma eficiente, rápida e segura</h4>
+    </header>
+    <main>
+        <div>
+            <div class="email">
+                <img src="./Front-TaskLevel/img/Email 1.png" alt="email" width="32px">
+                <input type="email" id="email" name="email" placeholder="Seu e-mail aqui">
+                <hr>
+            </div>
+            <div class="senha">
+                <img src="./Front-TaskLevel/img/Lock 1.png" alt="senha" width="32px">
+                <input type="password" id="senha" name="senha" placeholder="Sua senha">
+                <hr>
+            </div>
+        </div>
+        <div class="main_footer">
+            <button onclick="validarLogin()" class="btn_entrar">ENTRAR</button>
+            <a class="btn_esqueci_a_senha" href="./Front-TaskLevel/html/esquecerSenha.html">Esqueci a senha</a>
+            <p>Ainda não tem uma conta?</p>
+            <a class="btn_criar_conta" href="./Front-TaskLevel/html/cadastro.html">Criar Conta</a>
+        </div>
+    </main>
+</body>
+
+</html>
