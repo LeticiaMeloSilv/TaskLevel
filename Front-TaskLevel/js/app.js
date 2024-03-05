@@ -8,7 +8,7 @@ async function validarLogin() {
         alert('Preencha os campos corretamente')
     }
     try {
-        const responseApi = await fetch('http://localhost:5080/usuario')
+        const responseApi = await fetch('http://localhost:8080/usuario')
         const listUsers = await responseApi.json()
         
         

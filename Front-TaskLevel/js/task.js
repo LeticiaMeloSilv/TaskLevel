@@ -2,53 +2,53 @@
 
 const container = document.getElementById('atividades')
 
-
-
 //Pega o id fornecido pelo login pra dps usar ele em confirmacoes
 const idPerfil = localStorage.getItem('idusuario')
 if (!idPerfil) {
     window.location.href = '../../index.html'
 }
-
 //pega todas as informacoes sobre os usuarios
 async function pegarUsuariosBack() {
-    const responseApi = await fetch('http://localhost:5080/usuario')
+    const responseApi = await fetch('http://localhost:8080/usuario')
     const listUsuarios = await responseApi.json()
     return listUsuarios
 }
 //pega todas as informacoes das tarefas
 async function pegarTarefasBack() {
-    const responseApi = await fetch('http://localhost:5080/tarefas')
+    const responseApi = await fetch('http://localhost:8080/tarefas')
     const listTarefas = await responseApi.json()
     return listTarefas
 }
-//funcao para pegar as tarefas do usuario logado
+async function pegarComentariosBack() {
+    const responseApi = await fetch('http://localhost:8080/comentarios')
+    const listComentarios = await responseApi.json()
+    return listComentarios
+}
+
 pegarTarefasUsuario()
 async function pegarTarefasUsuario() {
     const listaTarefas = await pegarTarefasBack()
     const listaTarefasUsuario = []
     listaTarefas.forEach(tarefa => {
-        if (tarefa.idUsuario == idPerfil) {
-            listaTarefasUsuario.push(tarefa)
-        }
+        listaTarefasUsuario.push(tarefa)
     });
     return listaTarefasUsuario
 }
 
-//Sai da conta
-function logout() {
-    localStorage.removeItem('idusuario')
-    window.location.reload()
-}
-
-//botao para deixar a tela de adicionar tarefa visivel
 const addTaskButton = document.getElementById('addTaskButton')
 addTaskButton.addEventListener('click', abrirCampoCadastroTarefa)
-function abrirCampoCadastroTarefa() {
-    campoCriacao.style.display = 'block'
-}
+async function abrirCampoCadastroTarefa() {
+    const usuarios = await pegarUsuariosBack()
+    usuarios.forEach(usuario => {
+        if (usuario.premium == true && usuario.id == idPerfil) {
+            campoCriacao.style.display = 'block'
+        }
+        else if (usuario.premium == false && usuario.id == idPerfil) {
+            alert("Se torne em um usuario PREMIUM!!")
+        }
+    })
 
-//serve pra criar a tarefa no back
+}
 async function criarTarefa() {
     const titulo = document.getElementById('tituloCriarTarefa').value
     const descricao = document.getElementById('descricaoCriarTarefa').value
@@ -60,7 +60,7 @@ async function criarTarefa() {
         dataConclusão: data,
         idUsuario: idPerfil
     }
-    await fetch('http://localhost:5080/tarefas', {
+    await fetch('http://localhost:8080/tarefas', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -69,105 +69,112 @@ async function criarTarefa() {
     })
     console.log(novosDados)
 }
-function atualizarPaginaFiltro(){
-
-}
-function excluirListaTarefas(){
+function excluirListaTarefas() {
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
 }
 
-
-//funcao para criar o card das tarefas
-
-async function posicionarCards(){
+async function posicionarCards() {
     const info = await pegarTarefasUsuario()
     info.forEach(tarefa => {
         criarCard(tarefa)
-
     });
 }
-
 async function criarCard(tarefa) {
-        const card = document.createElement('div')
-        card.classList.add('atividade')
-        card.addEventListener('click', () => { exibir(tarefa.id) })
+    const card = document.createElement('div')
+    card.classList.add('atividade')
+    card.addEventListener('click', () => { exibir(tarefa.id) })
 
 
-        const imagem = document.createElement('img')
-        imagem.src = `../img/Rectangle 2.png`
-        imagem.alt = 'imagem da tarefa'
-        imagem.classList.add('img_atividade')
+    const imagem = document.createElement('img')
+    imagem.src = `../img/Rectangle 2.png`
+    imagem.alt = 'imagem da tarefa'
+    imagem.classList.add('img_atividade')
 
-        const tituloData = document.createElement('div')
-        tituloData.classList.add('titulo-data')
+    const tituloData = document.createElement('div')
+    tituloData.classList.add('titulo-data')
 
-        const titulo = document.createElement('h3')
-        titulo.textContent = tarefa.titulo
-        titulo.classList.add('titulo')
+    const titulo = document.createElement('h3')
+    titulo.textContent = tarefa.titulo
+    titulo.classList.add('titulo')
 
-        const data = document.createElement('h5')
-        data.textContent = tarefa.dataConclusão
-        data.classList.add('data')
+    const data = document.createElement('h5')
+    data.textContent = tarefa.dataConclusão
+    data.classList.add('data')
 
-        const conteudo = document.createElement('p')
-        conteudo.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem velit esse cillum dolore eu fugiat nulla pariatur.!"
-        conteudo.classList.add('conteudo')
+    const conteudo = document.createElement('p')
+    conteudo.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem velit esse cillum dolore eu fugiat nulla pariatur.!"
+    conteudo.classList.add('conteudo')
 
-        const btn_editar = document.createElement('div')
-        btn_editar.classList.add('btn_editar')
+    const btn_editar = document.createElement('div')
+    btn_editar.classList.add('btn_editar')
 
-        const img = document.createElement('img')
-        img.src = "../img/ferramenta-lapis.png"
-        imagem.alt = 'editar atividade'
+    const img = document.createElement('img')
+    img.src = "../img/ferramenta-lapis.png"
+    imagem.alt = 'editar atividade'
 
-        btn_editar.appendChild(img)
+    const idTarefa = localStorage.getItem('idTask')
 
-        tituloData.replaceChildren(titulo, data)
+    const listaComentarios = await pegarComentariosBack()
 
-        card.replaceChildren(imagem, tituloData, conteudo, btn_editar)
+    const comentarios = document.getElementById('comentarios')
 
-        container.appendChild(card);
+    listaComentarios.forEach(comentario => {
+        if (comentario.idTarefa == idTarefa) {
+
+            const containerComentario = document.createElement('div')
+            const descricao = document.createElement('p')
+
+            containerComentario.classList.add('comentarios')
+
+            descricao.textContent = `${comentario.conteudo}`
+            containerComentario.appendChild(descricao)
+
+            comentarios.appendChild(containerComentario)
+
+        }
+    });
+
+
+    btn_editar.appendChild(img)
+
+    tituloData.replaceChildren(titulo, data)
+
+    card.replaceChildren(imagem, tituloData, conteudo, btn_editar)
+
+    container.appendChild(card, comentarios);
 }
-
-//funcao que cria os cards das tarefas
 
 const campoEdicao = document.getElementById("atividade_focus")
 const campoCriacao = document.getElementById("campoCriacao")
-
-//funcao q da a possibilidade de editar a tarefa
-// async function exibir(id) {
-//     const titulo = document.getElementById('tituloEditarTarefa')
-//     const descricao = document.getElementById('descricaoEditarTarefa')
-//     const listaTarefas = await pegarTarefasBack()
-//     listaTarefas.forEach(tarefa => {
-//         if (tarefa.id == id) {
-//             const infoTarefa = {
-//                 titulo: tarefa.titulo,
-//                 descricao: tarefa.descricao
-//             }
-//             titulo.textContent = infoTarefa.titulo
-//             descricao.textContent = infoTarefa.descricao
-//         }
-//     });
-//     campoEdicao.style.display = 'block'
-// }
-
 async function exibir(id) {
     const titulo = document.getElementById('tituloEditarTarefa')
     const descricao = document.getElementById('descricaoEditarTarefa')
+    const comentarios = document.getElementById('comentariosEditarTarefa')
     const listaTarefas = await pegarTarefasBack()
+    const listaComentarios = await pegarComentariosBack()
+    const infoTarefa = {}
+
     listaTarefas.forEach(tarefa => {
         if (tarefa.id == id) {
-            const infoTarefa = {
-                titulo: tarefa.titulo,
-                descricao: tarefa.descricao
-            }
-            titulo.textContent = infoTarefa.titulo
-            descricao.textContent = infoTarefa.descricao
+            infoTarefa.titulo = tarefa.titulo
+            infoTarefa.descricao = tarefa.descricao
         }
+        titulo.textContent = infoTarefa.titulo
+        descricao.textContent = infoTarefa.descricao
     });
+    let listaComentariosTarefa = []
+
+    listaComentarios.forEach(comentario => {
+        if (comentario.idTarefa == id) {
+            listaComentariosTarefa.push(comentario.conteudo)
+            infoTarefa.comentarios = listaComentariosTarefa
+        }
+        comentarios.textContent = infoTarefa.comentarios
+    })
+    console.log(listaComentariosTarefa);
+
     campoEdicao.style.display = 'block'
 }
 
@@ -183,27 +190,33 @@ logoutButton.addEventListener('click', logout)
 
 window.onload = posicionarCards()
 
-const emAndamento=document.getElementById('emAndamento')
-// function atividadesEmAndamento() {
-//     const listaTarefas = await pegarTarefasBack()
-//     const listaUsuarios = await pegarUsuariosBack()
-// }
+const emAndamento = document.getElementById('emAndamento')
 
-async function filtrarAndamento(){
+async function filtrarAndamento() {
     excluirListaTarefas()
     const listaTarefas = await pegarTarefasUsuario()
     listaTarefas.forEach(tarefa => {
-        if(!tarefa.concluida){
+        if (!tarefa.concluida) {
             criarCard(tarefa)
         }
     });
 }
-async function filtrarConclusao(){
+async function filtrarConclusao() {
     excluirListaTarefas()
     const listaTarefas = await pegarTarefasUsuario()
     listaTarefas.forEach(tarefa => {
-        if(tarefa.concluida){
+        if (tarefa.concluida) {
             criarCard(tarefa)
         }
     });
+}
+
+async function LoadComment() {
+    const idTask = this.id
+    localStorage.setItem('idTask', idTask)
+    window.location.href = './home.html'
+}
+function logout() {
+    localStorage.removeItem('idusuario')
+    window.location.reload()
 }

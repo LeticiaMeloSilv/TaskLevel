@@ -27,7 +27,7 @@ async function cadastrarUsuario() {
 
         console.log(usuario)
         try {
-            const url = 'http://localhost:5080/usuario'
+            const url = 'http://localhost:8080/usuario'
             const options = {
                 method: 'POST',
                 headers: {
